@@ -1,0 +1,7 @@
+name: MenuApi
+version: 1.0
+api-version: 1.13
+main: io.smcode.MenuApi
+
+commands:
+  killgui:
