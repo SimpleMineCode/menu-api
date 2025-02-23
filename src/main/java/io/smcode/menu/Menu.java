@@ -15,7 +15,14 @@ public interface Menu extends InventoryHolder {
 
     void onSetItems();
 
+    boolean usePlaceholders();
+
+    void setPlaceholders();
+
     default void open(Player player) {
+        if (usePlaceholders())
+            setPlaceholders();
+
         onSetItems();
         player.openInventory(getInventory());
     }
