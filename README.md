@@ -18,17 +18,17 @@
 To make a GUI you have to create a class and let it extend `SimpleMenu`:
 
 ```JAVA
-public class KillMenu extends SimpleMenu {
-    public KillMenu() {
+public class MyMenu extends SimpleMenu {
+    public MyMenu() {
         super(Rows.THREE, "End your suffering");
     }
 
     @Override
     public void onSetItems() {
         // This method can be used to add items to the GUI
-        final ItemStack killItem = new ItemStack(Material.BARRIER);
+        final ItemStack item = new ItemStack(Material.BARRIER);
 
-        setItem(13, killItem, player -> {
+        setItem(13, item, player -> {
             // This will be executed when the player clicks this item
             player.sendMessage("You clicked this item");
         });
