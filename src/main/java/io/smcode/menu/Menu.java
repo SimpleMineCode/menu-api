@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 public interface Menu extends InventoryHolder {
@@ -18,6 +19,11 @@ public interface Menu extends InventoryHolder {
     boolean usePlaceholders();
 
     void setPlaceholders();
+
+    void update();
+
+    Map<Integer, ItemStack> getItemsMap();
+    Map<Integer, Consumer<Player>> getActionsMap();
 
     default void open(Player player) {
         if (usePlaceholders())

@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 public abstract class SimpleMenu implements Menu {
-    private static final ItemStack PLACEHOLDER_ITEM;
+    protected static final ItemStack PLACEHOLDER_ITEM;
 
     static {
         PLACEHOLDER_ITEM = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
@@ -24,6 +24,7 @@ public abstract class SimpleMenu implements Menu {
     }
 
     private final Map<Integer, Consumer<Player>> actions = new HashMap<>();
+    private final Map<Integer, ItemStack> items = new HashMap<>();
     private final Inventory inventory;
     private boolean usePlaceholders;
 
@@ -42,12 +43,14 @@ public abstract class SimpleMenu implements Menu {
 
     @Override
     public void setItem(int slot, ItemStack item) {
-        setItem(slot, item, player -> {});
+        setItem(slot, item, player -> {
+        });
     }
 
     @Override
     public void setItem(int slot, ItemStack item, Consumer<Player> action) {
         this.actions.put(slot, action);
+        this.items.put(slot, item);
         getInventory().setItem(slot, item);
     }
 
@@ -58,7 +61,8 @@ public abstract class SimpleMenu implements Menu {
     @Override
     public void setPlaceholders() {
         for (int i = 0; i < getInventory().getSize(); i++) {
-            getInventory().setItem(i, PLACEHOLDER_ITEM);
+            if (getInventory().getItem(i) == null)
+                getInventory().setItem(i, PLACEHOLDER_ITEM);
         }
     }
 
@@ -67,11 +71,33 @@ public abstract class SimpleMenu implements Menu {
         return usePlaceholders;
     }
 
+    @Override
+    public void update() {
+        getInventory().clear();
+
+        for (int i = 0; i < getInventory().getSize(); i++) {
+            final ItemStack item = getItemsMap().get(i);
+
+            if (item != null)
+                getInventory().setItem(i, item);
+        }
+    }
+
     public abstract void onSetItems();
 
     @Override
     public @NotNull Inventory getInventory() {
         return inventory;
+    }
+
+    @Override
+    public Map<Integer, ItemStack> getItemsMap() {
+        return items;
+    }
+
+    @Override
+    public Map<Integer, Consumer<Player>> getActionsMap() {
+        return actions;
     }
 
     public enum Rows {
