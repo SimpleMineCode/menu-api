@@ -30,9 +30,11 @@ public abstract class PagedMenu extends SimpleMenu {
     }
 
     public void addAll(ItemStack... items) {
+        final int safeArea = getInventory().getSize() - 9;
+
         for (int i = 0; i < items.length; i++) {
-            final int page = i / (getInventory().getSize() - 9);
-            final int slot = i % (getInventory().getSize() - 9);
+            final int page = i / safeArea;
+            final int slot = i % safeArea;
 
             setItem(page, slot, items[i]);
         }
