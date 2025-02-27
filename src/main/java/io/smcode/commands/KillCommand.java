@@ -1,6 +1,5 @@
 package io.smcode.commands;
 
-import io.smcode.test.KillMenu;
 import io.smcode.test.TestPagedMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -7,7 +7,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MenuApi extends JavaPlugin {
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new InventoryListener(), this);
+        setUp(this);
         getCommand("killgui").setExecutor(new KillCommand());
+    }
+
+    public static void setUp(JavaPlugin plugin) {
+        plugin.getServer().getPluginManager().registerEvents(new InventoryListener(), plugin);
     }
 }
