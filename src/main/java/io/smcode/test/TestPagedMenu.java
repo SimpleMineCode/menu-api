@@ -8,7 +8,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class TestPagedMenu extends PagedMenu {
     public TestPagedMenu() {
-        super(Rows.FOUR, "Test");
+        super(Rows.FOUR, Component.text("Test"));
     }
 
     @Override

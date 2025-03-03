@@ -28,9 +28,9 @@ public abstract class SimpleMenu implements Menu {
     private final Inventory inventory;
     private boolean usePlaceholders;
 
-    public SimpleMenu(Rows rows, String title) {
+    public SimpleMenu(Rows rows, Component title) {
         this.usePlaceholders = true;
-        this.inventory = Bukkit.createInventory(this, rows.getSize(), Component.text(title));
+        this.inventory = Bukkit.createInventory(this, rows.getSize(), title);
     }
 
     @Override

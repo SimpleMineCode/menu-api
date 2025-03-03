@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class KillMenu extends SimpleMenu {
     public KillMenu() {
-        super(Rows.THREE, "End your suffering");
+        super(Rows.THREE, Component.text("End your suffering"));
     }
 
     @Override

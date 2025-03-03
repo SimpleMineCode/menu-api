@@ -13,7 +13,7 @@ public abstract class PagedMenu extends SimpleMenu {
     private int currentPage = 0;
     private int maxPage = 0;
 
-    public PagedMenu(Rows rows, String title) {
+    public PagedMenu(Rows rows, Component title) {
         super(rows, title);
         setNavigation();
     }
