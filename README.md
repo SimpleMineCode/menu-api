@@ -10,7 +10,7 @@
 <dependency>
   <groupId>io.smcode</groupId>
   <artifactId>menu-api</artifactId>
-  <version>{version}</version>
+  <version>{version}</version> <!-- CHECK NEWEST VERSION HERE: https://repo.smcode.io/#/releases/io/smcode/menu-api -->
 </dependency>
 ```
 
