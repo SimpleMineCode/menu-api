@@ -20,7 +20,7 @@ To make a GUI you have to create a class and let it extend `SimpleMenu`:
 ```JAVA
 public class MyMenu extends SimpleMenu {
     public MyMenu() {
-        super(Rows.THREE, Component.text("End your suffering"));
+        super(Rows.THREE, Component.text("Title of the menu"));
     }
 
     @Override
