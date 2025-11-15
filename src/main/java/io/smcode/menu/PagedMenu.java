@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 public abstract class PagedMenu extends SimpleMenu {
