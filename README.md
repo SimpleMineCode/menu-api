@@ -1,17 +1,17 @@
 ## Use in your projects
 
+**Maven**
 ```XML
-<repository>
-  <id>smcode-repo-releases</id>
-  <name>SMCode Repository</name>
-  <url>https://repo.smcode.io/releases</url>
-</repository>
-
 <dependency>
-  <groupId>io.smcode</groupId>
-  <artifactId>menu-api</artifactId>
-  <version>{version}</version> <!-- CHECK NEWEST VERSION HERE: https://repo.smcode.io/#/releases/io/smcode/menu-api -->
+    <groupId>io.smcode</groupId>
+    <artifactId>menu-api</artifactId>
+    <version>1.1.0</version>
 </dependency>
+```
+
+**Gradle**
+```gradle
+implementation("io.smcode:menu-api:1.1.0")
 ```
 
 ## Create a GUI
