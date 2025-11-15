@@ -17,6 +17,7 @@ implementation("io.smcode:menu-api:1.1.0")
 ## Create a GUI
 To make a GUI you have to create a class and let it extend `SimpleMenu`:
 
+**Menu**
 ```JAVA
 public class MyMenu extends SimpleMenu {
     public MyMenu() {
@@ -32,6 +33,29 @@ public class MyMenu extends SimpleMenu {
             // This will be executed when the player clicks this item
             player.sendMessage("You clicked this item");
         });
+    }
+}
+```
+**Paged Menu**
+```JAVA
+public class TestPagedMenu extends PagedMenu { // extend PagedMenu
+    public TestPagedMenu() {
+        super(Rows.FOUR, Component.text("Test Pagd Menu"));
+    }
+
+    @Override
+    public void onSetItems() {
+        final ItemStack[] items = new ItemStack[100];
+
+        for (int i = 0; i < items.length; i++) {
+            final ItemStack item = new ItemStack(Material.PAPER);
+            final ItemMeta meta = item.getItemMeta();
+            meta.displayName(Component.text(i));
+            item.setItemMeta(meta);
+            items[i] = item;
+        }
+
+        addAll(items);
     }
 }
 ```
