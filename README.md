@@ -5,13 +5,13 @@
 <dependency>
     <groupId>io.smcode</groupId>
     <artifactId>menu-api</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
 **Gradle**
 ```gradle
-implementation("io.smcode:menu-api:1.1.0")
+implementation("io.smcode:menu-api:1.1.1")
 ```
 
 ## Create a GUI
