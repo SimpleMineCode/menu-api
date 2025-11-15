@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 public abstract class PagedMenu extends SimpleMenu {
@@ -37,6 +38,23 @@ public abstract class PagedMenu extends SimpleMenu {
             final int slot = i % safeArea;
 
             setItem(page, slot, items[i]);
+        }
+    }
+
+    public void addAll(Map<ItemStack, Consumer<Player>> entries) {
+        final int safeArea = getInventory().getSize() - 9;
+
+        int index = 0;
+        for (Map.Entry<ItemStack, Consumer<Player>> entry : entries.entrySet()) {
+            int page = index / safeArea;
+            int slot = index % safeArea;
+
+            ItemStack item = entry.getKey();
+            Consumer<Player> action = entry.getValue();
+
+            setItem(page, slot, item, action);
+
+            index++;
         }
     }
 
