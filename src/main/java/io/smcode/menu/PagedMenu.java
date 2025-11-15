@@ -40,6 +40,32 @@ public abstract class PagedMenu extends SimpleMenu {
         }
     }
 
+    public void addAll(Map<ItemStack, Consumer<Player>> entries) {
+
+        final int safeArea = getInventory().getSize() - 9;
+
+        int page = 0;
+        int slot = 0;
+
+        for (int i = 0; i < items.length; i++) {
+            page = i / safeArea;
+            slot = i % safeArea;
+        }
+
+        for(Map.Entry<ItemStack, Consumer<Player>> entry : entries.entrySet()) {
+            
+            ItemStack item = entry.getKey();
+            Consumer<Player> action = entry.getValue(); 
+            
+            setItem(page, slot, item, action);
+        }
+
+    }
+
+    public void setItem(int page, int slot, ItemStack item, Consumer<Player> action) {
+        setItem(page, slot, item, action);
+    }
+
     @Override
     public void update() {
         getInventory().clear();
